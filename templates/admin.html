@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | City Issue Management</title>
+
+    <link rel="stylesheet" href="/admin.css">
+</head>
+
+<body>
+
+    <!-- ADMIN LOGIN -->
+
+    <main class="login-page" id="loginPage">
+
+        <section class="login-card">
+
+            <h1>Admin Login</h1>
+
+            <p class="subtitle">
+                City Issue Management System
+            </p>
+
+            <form id="adminLoginForm" method="POST" action="/admin">
+
+                <div class="form-group">
+
+                    <label for="username">Admin Name</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter admin name"
+                        autocomplete="username"
+                        required
+                    >
+
+                    <small id="usernameError" class="error-message"></small>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <small id="passwordError" class="error-message"></small>
+
+                </div>
+
+                <button type="submit" id="loginButton">
+                    Login
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- ADMIN DASHBOARD -->
+
+    <main class="dashboard" id="dashboardPage" style="display: none;">
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div class="header-content">
+
+                <div>
+
+                    <h1>City Issue Management</h1>
+
+                    <p>Admin Dashboard</p>
+
+                </div>
+
+            </div>
+
+            <button type="button" id="logoutButton">
+                Logout
+            </button>
+
+        </header>
+
+
+        <!-- STATISTICS -->
+
+        <section class="stats-container">
+
+            <div class="stat-card total-card">
+
+                <div class="stat-icon">📋</div>
+
+                <h3>Total Complaints</h3>
+
+                <p id="totalComplaints">0</p>
+
+                <span>All submitted complaints</span>
+
+            </div>
+
+
+            <div class="stat-card pending-card">
+
+                <div class="stat-icon">⏳</div>
+
+                <h3>Pending</h3>
+
+                <p id="pendingComplaints">0</p>
+
+                <span>Awaiting attention</span>
+
+            </div>
+
+
+            <div class="stat-card progress-card">
+
+                <div class="stat-icon">⚙️</div>
+
+                <h3>In Progress</h3>
+
+                <p id="progressComplaints">0</p>
+
+                <span>Currently being handled</span>
+
+            </div>
+
+
+            <div class="stat-card resolved-card">
+
+                <div class="stat-icon">✓</div>
+
+                <h3>Resolved</h3>
+
+                <p id="resolvedComplaints">0</p>
+
+                <span>Successfully completed</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMPLAINTS SECTION -->
+
+        <section class="complaints-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Complaint Management</h2>
+
+                    <p>Monitor and manage citizen complaints</p>
+
+                </div>
+
+                <button type="button" id="refreshButton">
+                    ↻ Refresh
+                </button>
+
+            </div>
+
+
+            <!-- COMPLAINT FILTERS -->
+
+            <div class="filter-container">
+
+                <button
+                    type="button"
+                    class="filter-button active"
+                    data-filter="active"
+                >
+                    Active Complaints
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="resolved"
+                >
+                    Resolved Complaints
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="all"
+                >
+                    All Complaints
+                </button>
+
+            </div>
+
+
+            <!-- COMPLAINTS -->
+
+            <div
+                id="complaintsContainer"
+                class="complaints-container"
+            >
+
+                <p class="loading-message">
+                    Loading complaints...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="dashboard-footer">
+
+            <p>
+                City Issue Management System
+            </p>
+
+            <span>
+                Clean • Safe • Smart • Better City
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="/admin.js"></script>
+
+</body>
+
+</html>
